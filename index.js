@@ -10,8 +10,6 @@ const URI = process.env.MLAB || 'mongodb://localhost:27017/mkhansons';
 //then start the server using this command:
 //env $(cat .env) nodemon
 
-//problem with git commands
-
 //setting template engine
 app.set('view engine', 'ejs');
 //static files
