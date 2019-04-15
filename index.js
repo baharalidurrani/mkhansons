@@ -6,6 +6,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const URI = process.env.MLAB || 'mongodb://localhost:27017/mkhansons';
 
+//if using the local .env
+//then start the server using this command:
+//env $(cat .env) nodemon
+
 //setting template engine
 app.set('view engine', 'ejs');
 //static files
