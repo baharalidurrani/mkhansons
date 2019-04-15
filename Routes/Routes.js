@@ -1,13 +1,13 @@
 const express = require('express');
 const Router = express.Router();
 const Home = require('../Controllers/HomeController');
-const Api = require('../Controllers/ApiController');
+const Bill = require('../Controllers/BillController');
 const AddProduct = require('../Controllers/AddProductController');
 const AddCompany = require('../Controllers/AddCompanyController');
 
 
 //API route
-Router.get('/api', Api.get);
+Router.get('/bill', Api.get);
 
 //Home route
 Router.get('/', Home.get);
