@@ -2,7 +2,8 @@ const express = require('express');
 const Router = express.Router();
 const Home = require('../Controllers/HomeController');
 const Api = require('../Controllers/ApiController');
-const Add = require('../Controllers/AddController');
+const AddProduct = require('../Controllers/AddProductController');
+const AddCompany = require('../Controllers/AddCompanyController');
 
 
 //API route
@@ -11,7 +12,8 @@ Router.get('/api', Api.get);
 //Home route
 Router.get('/', Home.get);
 
-Router.get('/add', Add.get);
+Router.get('/addp', AddProduct.get);
+Router.get('/addc', AddCompany.get);
 
 
 //////////////////not found
