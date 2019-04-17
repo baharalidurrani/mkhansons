@@ -18,11 +18,9 @@
         <nav class="cyan">
             <div class="nav-wrapper">
                 <div class="container">
-                    <a href="#" class="brand-logo">Logo</a>
+                    <a href="#" class="brand-logo">M. Khan</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
+                        <li><a href="sass.html"></a></li>
                     </ul>
                 </div>
             </div>
@@ -35,12 +33,30 @@
         <div class="container">
             <div class="card hoverable">
                 <div class="card-content">
-                    <span class="card-title">Add Company</span>
-                    <p class="flow-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia pariatur veritatis
-                        accusantium ullam beatae nisi incidunt. Molestiae odio corporis ducimus totam perspiciatis
-                        mollitia veritatis debitis expedita minus doloribus? Ea, ex?
-                    </p>
+                    <span class="card-title center">Add New Companny</span>
+                    <div class="card-content center">
+                        <form action="/addc" method="post">
+                            <div class="input-field">
+                                <input id="first_name" type="text" class="validate" name="NAME" required=""
+                                    aria-required="true">
+                                <label for="first_name">Company Name</label>
+                            </div>
+                            <br>
+                            <button class="btn waves-effect waves-light z-depth-0 btn-small center" type="submit"
+                                name="action">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Already in Database</span>
+                </div>
+                <div class="card-content">
+                    <%for(let i=0;i<inserted.length;i++){%>
+                    <span><%=inserted[i]._name%></span>
+                    <br>
+                    <%}%>
                 </div>
             </div>
         </div>
@@ -52,12 +68,11 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+                    <h5 class="white-text">About</h5>
+                    <p class="grey-text text-lighten-4">A product distributing company located in Charsadda.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">Network</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
@@ -68,7 +83,7 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2019 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
             </div>
         </div>
     </footer>

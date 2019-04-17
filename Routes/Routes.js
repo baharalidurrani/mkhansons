@@ -7,13 +7,14 @@ const AddCompany = require('../Controllers/AddCompanyController');
 
 
 //API route
-Router.get('/bill', Api.get);
+Router.get('/bill', Bill.get);
 
 //Home route
 Router.get('/', Home.get);
 
 Router.get('/addp', AddProduct.get);
 Router.get('/addc', AddCompany.get);
+Router.post('/addc', AddCompany.post);
 
 
 //////////////////not found
