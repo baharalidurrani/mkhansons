@@ -13,6 +13,8 @@ Router.get('/bill', Bill.get);
 Router.get('/', Home.get);
 
 Router.get('/addp', AddProduct.get);
+Router.post('/addp', AddProduct.post);
+
 Router.get('/addc', AddCompany.get);
 Router.post('/addc', AddCompany.post);
 

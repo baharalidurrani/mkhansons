@@ -39,15 +39,20 @@
                     <span class="card-title center"><%=companies[i]._name%></span>
                     <form action="/addp" method="post">
                         <div class="row valign-wrapper">
-                            <div class="input-field col s11">
+                            <div class="input-field col s9">
                                 <input id="first_name" type="text" class="validate" name="NAME" required=""
                                     aria-required="true">
                                 <label for="first_name">Product Name</label>
                             </div>
-                            <input type="hidden" name="COMPANY" value=<%=companies[i]._id%>>
+                            <div class="input-field col s2">
+                                <input id="price" type="number" class="validate" name="PRICE" required=""
+                                    aria-required="true">
+                                <label for="price">Price</label>
+                            </div>
                             <div class="col s1">
-                                <button class="btn waves-effect waves-light z-depth-0 btn-small" type="submit"
-                                    name="action"><i class="material-icons">send</i></button>
+                                <button class="btn waves-effect waves-light z-depth-0 btn-small" type="submit"><i
+                                        class="material-icons">send</i></button>
+                                <input type="hidden" name="COMPANY" value=<%=companies[i]._id%>>
                             </div>
                         </div>
                     </form>
