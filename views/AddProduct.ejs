@@ -97,8 +97,12 @@
     <!-- <script src="./js/jquery-3.4.0.slim.min.js"></script> -->
     <script>
         M.AutoInit();
-
     </script>
+    <%if(toast){%>
+            <script>
+                M.toast({ html: '<%=toast%> added!' });
+            </script>
+            <%}%>
 </body>
 
 </html>

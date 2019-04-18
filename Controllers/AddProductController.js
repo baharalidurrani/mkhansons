@@ -5,8 +5,13 @@ exports.get = (req, res) => {
     CompanyModel.find().then((inDB) => {
         console.log('in DB companies');
         console.log(inDB);
-        res.render('AddProduct.ejs', { companies: inDB });
-    })
+        var passedVariable = req.query.product;
+
+        res.render('AddProduct.ejs', {
+            companies: inDB,
+            toast: passedVariable
+        });
+    });
 }
 
 exports.post = (req, res) => {
@@ -18,7 +23,10 @@ exports.post = (req, res) => {
     pModel.save().then((data) => {
         console.log("New Product added");
         console.log(data);
-        res.redirect('/addp');
+        var string = encodeURIComponent(req.body.NAME);
+        res.redirect('/addp?product=' + string);
+
+        // res.redirect('/addp');
     });
     // console.log(req.body);
 }
