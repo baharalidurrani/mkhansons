@@ -1,3 +1,9 @@
+const ProductModel = require("../Models/Product");
+
 exports.get = (req, res) => {
-    res.render('Home.ejs');
+    ProductModel.find().populate('_company').then((inDB) => {
+        console.log('in DB products');
+        console.log(inDB);
+        res.render('Home.ejs', { products: inDB });
+    })
 };

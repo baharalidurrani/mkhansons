@@ -8,6 +8,7 @@ const AddCompany = require('../Controllers/AddCompanyController');
 
 //API route
 Router.get('/bill', Bill.get);
+Router.post('/bill', Bill.post);
 
 //Home route
 Router.get('/', Home.get);
