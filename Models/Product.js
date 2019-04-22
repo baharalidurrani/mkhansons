@@ -16,6 +16,12 @@ var ProductSchema = new Schema({
         type: Number,
         trim: true,
         required: true
+    },
+    _lastDate: {
+        type: String
+    },
+    _sold: {
+        type: Number
     }
 });
 

@@ -36,7 +36,7 @@
         <div class="container white z-depth-3">
             <!-- <div class="card">
                 <div class="card-content"> -->
-            <form action="/bill" method="post">
+            <form action="/bill" method="post" id="myform">
                 <button class="btn waves-effect waves-light right marginAll" type="submit">Prepare Bill</button>
                 <br>
                 <br>
@@ -109,9 +109,22 @@
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable({ paging: false });
+
             document.querySelector('#myTable_filter > label > input[type="search"]').style.marginLeft = 0;
         });
-        // document.querySelector('#myTable_filter > label > input[type="search"]').style.marginLeft = 0;
+
+        document.getElementById("myform").onsubmit = function () {
+            console.log('form about to submited');
+            document.querySelector('#myTable_filter > label > input[type="search"]').value = '';
+            $('#myTable_filter > label > input[type="search"]').keyup();
+        };
+
+
+        // $('#myform').submit(function () {
+        //     console.log('form about to submited');
+        //     // document.querySelector('#myTable_filter > label > input[type="search"]').innerHTML = '';
+        //     return true; // return false to cancel form action
+        // });
     </script>
     <!-- <script src="/js/myScript.js"></script> -->
 </body>
