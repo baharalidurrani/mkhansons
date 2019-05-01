@@ -63,11 +63,14 @@
                             <td><%=products[i]._price%></td>
                             <td><input type="number" name="QUANTITY"></td>
                             <input type="hidden" name="PRODUCT" value=<%=products[i]._id%>>
+                            <input type="hidden" name="CNAME" value=<%=products[i]._company._name%>>
+                            <input type="hidden" name="NAME" value=<%=products[i]._name%>>
+                            <input type="hidden" name="PRICE" value=<%=products[i]._price%>>
                         </tr>
                         <%}%>
-                            </tbody>
-                        </table>
-                    </form>
+                    </tbody>
+                </table>
+            </form>
                 <!-- </div>
             </div> -->
         </div>
