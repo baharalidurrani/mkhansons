@@ -36,7 +36,8 @@
                 <td><%=data[i]._name%></td>
                 <td><%=data[i]._price%></td>
                 <td><%=data[i]._sold%></td>
-                <td><%=total+=data[i]._price*data[i]._sold%></td>
+                <td><%=data[i]._price*data[i]._sold%></td>
+                <%total+=data[i]._price*data[i]._sold%>
             </tr>
             <%}%>
                 <tr>
