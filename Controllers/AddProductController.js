@@ -3,8 +3,8 @@ const ProductModel = require("../Models/Product");
 
 exports.get = (req, res) => {
     CompanyModel.find().then((inDB) => {
-        console.log('in DB companies');
-        console.log(inDB);
+        // console.log('in DB companies');
+        // console.log(inDB);
         var passedVariable = req.query.product;
 
         res.render('AddProduct.ejs', {
@@ -25,8 +25,5 @@ exports.post = (req, res) => {
         console.log(data);
         var string = encodeURIComponent(req.body.NAME);
         res.redirect('/addp?product=' + string);
-
-        // res.redirect('/addp');
     });
-    // console.log(req.body);
 }

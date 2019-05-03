@@ -47,12 +47,6 @@ exports.post = (req, res) => {
             }
         });
     }
-
-    // console.log("/////////////////////////////////////////////////");
-    // console.log(shopname);
-    // console.log(billitems);
-    // console.log(totalbill);
-
     res.render('Bill', {
         data: billitems,
         total: totalbill,
