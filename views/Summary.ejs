@@ -15,7 +15,7 @@
 
 <body>
     <h1 align="center">M. Khan Sons Distribution Agency</h1>
-    <h3 align="center">Shop: <%=shop%></h3>
+    <h3 align="center">Date: mm/dd/yy <%=data[0]._lastDate%></h3>
 
     <table style="width:100%">
         <thead>
@@ -29,13 +29,14 @@
         </thead>
 
         <tbody>
+            <%let total=0%>
             <%for(let i=0;i<data.length; i++){%>
             <tr>
-                <td><%=data[i].cname%></td>
-                <td><%=data[i].name%></td>
-                <td><%=data[i].price%></td>
-                <td><%=data[i].quantity%></td>
-                <td><%=data[i].total%></td>
+                <td><%=data[i]._company._name%></td>
+                <td><%=data[i]._name%></td>
+                <td><%=data[i]._price%></td>
+                <td><%=data[i]._sold%></td>
+                <td><%=total+=data[i]._price*data[i]._sold%></td>
             </tr>
             <%}%>
                 <tr>
