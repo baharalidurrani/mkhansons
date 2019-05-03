@@ -19,7 +19,7 @@ exports.post = (req, res) => {
         let id = req.body.PRODUCT[index];
         let qty = parseInt(req.body.QUANTITY[index], 10);
         let ttl = qty * parseInt(req.body.PRICE[index], 10);
-        totalbill += ttl;
+        totalbill = totalbill + ttl;
 
         billitems.push({
             cname: req.body.CNAME[index],
