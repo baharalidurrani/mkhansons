@@ -1,14 +1,14 @@
 const ProductModel = require("../Models/Product");
 
-exports.get = (req, res) => {
-    res.render('Bill.ejs');
-}
+// exports.get = (req, res) => {
+//     res.render('Bill.ejs');
+// }
 
 exports.post = (req, res) => {
     // console.log(req.body);
-    var billitems = [];
-    var totalbill = 0;
-    var shopname = req.body.SHOP;
+    let billitems = [];
+    let totalbill = 0;
+    let shopname = req.body.SHOP;
 
     let today = new Date().toLocaleDateString();
 
@@ -16,9 +16,9 @@ exports.post = (req, res) => {
         if (!req.body.QUANTITY[index])
             continue;
 
-        const id = req.body.PRODUCT[index];
-        const qty = req.body.QUANTITY[index];
-        const ttl = req.body.QUANTITY[index] * req.body.PRICE[index]
+        let id = req.body.PRODUCT[index];
+        let qty = parseInt(req.body.QUANTITY[index], 10);
+        let ttl = qty * parseInt(req.body.PRICE[index], 10);
         totalbill += ttl;
 
         billitems.push({
@@ -29,14 +29,21 @@ exports.post = (req, res) => {
             total: ttl
         });
 
-
         ProductModel.findById(id).then((doc) => {
-            if (doc._lastDate == today) {
-                let sold = doc._sold + qty;
-                ProductModel.findOneAndUpdate({ _id: id }, { _sold: sold }, { new: true });
+            if (doc._lastDate === today) {
+                doc._sold = doc._sold + qty;
+                doc.save().then((ndata) => {
+                    console.log('todays item re sold');
+                    console.log(ndata);
+                });
             }
             else {
-                ProductModel.findOneAndUpdate({ _id: id }, { _lastDate: today, _sold: qty }, { new: true });
+                doc._lastDate = today;
+                doc._sold = qty;
+                doc.save().then((ndata) => {
+                    console.log('yesterdays item sold')
+                    console.log(ndata);
+                });
             }
         });
     }

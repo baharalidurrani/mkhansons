@@ -4,10 +4,10 @@ const Home = require('../Controllers/HomeController');
 const Bill = require('../Controllers/BillController');
 const AddProduct = require('../Controllers/AddProductController');
 const AddCompany = require('../Controllers/AddCompanyController');
-
+const Summary = require('../Controllers/SummaryController');
 
 //API route
-Router.get('/bill', Bill.get);
+// Router.get('/bill', Bill.get);
 Router.post('/bill', Bill.post);
 
 //Home route
@@ -18,6 +18,8 @@ Router.post('/addp', AddProduct.post);
 
 Router.get('/addc', AddCompany.get);
 Router.post('/addc', AddCompany.post);
+
+Router.get('/sum', Summary.get);
 
 
 //////////////////not found
