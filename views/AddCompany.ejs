@@ -19,6 +19,7 @@
             <div class="nav-wrapper">
                 <div class="container">
                     <a href="/" class="brand-logo">MKSDA</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><b>|||</b></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/sum">Summary</a></li>
                         <li><a href="/addp">Add Product</a></li>
@@ -26,8 +27,15 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <ul class="sidenav" id="mobile-demo">
+                <li> <a href="/" class="brand-logo">MKSDA</a></li>
+                <div class="divider"></div>
+                <li><a href="/sum">Summary</a></li>
+                <li><a href="/addp">Add Product</a></li>
+            </ul>
+        </div>
     </header>
-
 
     <main class="g2196f3">
         <br>
@@ -91,6 +99,9 @@
     <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
     <!--JavaScript at end of body for optimized loading-->
     <script src="/js/materialize.min.js"></script>
+    <script>
+        M.AutoInit();
+    </script>
 </body>
 
 </html>

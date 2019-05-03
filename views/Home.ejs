@@ -20,6 +20,7 @@
             <div class="nav-wrapper">
                 <div class="container">
                     <a href="/" class="brand-logo">MKSDA</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><b>|||</b></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/sum">Summary</a></li>
                         <li><a href="/addc">Add Company</a></li>
@@ -28,6 +29,15 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <ul class="sidenav" id="mobile-demo">
+                <li> <a href="/" class="brand-logo">MKSDA</a></li>
+                <div class="divider"></div>
+                <li><a href="/sum">Summary</a></li>
+                <li><a href="/addc">Add Company</a></li>
+                <li><a href="/addp">Add Product</a></li>
+            </ul>
+        </div>
     </header>
 
 
@@ -113,6 +123,8 @@
     <script src="/js/materialize.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('.sidenav').sidenav();
+
             $('#myTable').DataTable({ paging: false });
 
             document.querySelector('#myTable_filter > label > input[type="search"]').style.marginLeft = 0;

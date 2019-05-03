@@ -19,6 +19,7 @@
             <div class="nav-wrapper">
                 <div class="container">
                     <a href="/" class="brand-logo">MKSDA</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><b>|||</b></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/sum">Summary</a></li>
                         <li><a href="/addc">Add Company</a></li>
@@ -26,8 +27,15 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <ul class="sidenav" id="mobile-demo">
+                <li> <a href="/" class="brand-logo">MKSDA</a></li>
+                <div class="divider"></div>
+                <li><a href="/sum">Summary</a></li>
+                <li><a href="/addc">Add Company</a></li>
+            </ul>
+        </div>
     </header>
-
 
     <main class="g2196f3">
         <br>
@@ -49,8 +57,8 @@
                                 <label for="price">Price</label>
                             </div>
                             <div class="col m1">
-                                <button class="btn waves-effect waves-light z-depth-0 btn-small" type="submit"><i
-                                        class="material-icons">send</i></button>
+                                <button class="btn waves-effect waves-light z-depth-0 btn-small"
+                                    type="submit">Insert</button>
                                 <input type="hidden" name="COMPANY" value=<%=companies[i]._id%>>
                             </div>
                         </div>
