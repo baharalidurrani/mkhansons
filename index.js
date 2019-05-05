@@ -22,17 +22,27 @@ app.use(bodyParser.urlencoded({
 
 //connection with mongoose
 mongoose.Promise = global.Promise;
-var connectWithRetry = function () {
-    return mongoose.connect(URI, {
-        useNewUrlParser: true
-    }).then(() => {
-        console.log('Mongo Connnected');
-    }).catch((err) => {
-        console.error('Failed to connect to Mongo - retrying in 5 sec', err);
-        setTimeout(connectWithRetry, 5000);
-    });
+//db connections with retry events
+const options = {
+    useNewUrlParser: true,
+    autoReconnect: true,
 };
-connectWithRetry();
+var db = mongoose.connection;
+db.on('connected', function () {
+    console.log('Mongo connected at ' + URI);
+});
+db.on('disconnected', function () {
+    console.log('Mongo disconnected!');
+    setTimeout(() => mongoose.connect(URI, options), 5000);
+});
+db.on('reconnected', function () {
+    console.log('MongoDB reconnected!');
+});
+db.on('error', function (error) {
+    console.error('Mongo not connecting, ' + error);
+    mongoose.disconnect();
+});
+mongoose.connect(URI, options);
 
 //start web server
 app.listen(PORT, () => {
