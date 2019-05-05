@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const URI = process.env.MLAB || 'mongodb://localhost:27017/mkhansons';
+const URI = process.env.MLAB || 'mongodb://127.0.0.1:27017/mkhansons';
 
 //if using the local .env
 //then start the server using this command:
@@ -22,13 +22,17 @@ app.use(bodyParser.urlencoded({
 
 //connection with mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(URI, {
-    useNewUrlParser: true
-}).then(() => {
-    console.log('Database Connnected');
-}).catch((err) => {
-    console.log(err);
-});
+var connectWithRetry = function () {
+    return mongoose.connect(URI, {
+        useNewUrlParser: true
+    }).then(() => {
+        console.log('Mongo Connnected');
+    }).catch((err) => {
+        console.error('Failed to connect to Mongo - retrying in 5 sec', err);
+        setTimeout(connectWithRetry, 5000);
+    });
+};
+connectWithRetry();
 
 //start web server
 app.listen(PORT, () => {
